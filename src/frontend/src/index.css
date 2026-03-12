@@ -1,0 +1,155 @@
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree-Variable.woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Backgrounds */
+    --background: 0.97 0.006 210;
+    --foreground: 0.15 0.03 225;
+
+    /* Cards */
+    --card: 1 0 0;
+    --card-foreground: 0.15 0.03 225;
+
+    /* Popover */
+    --popover: 1 0 0;
+    --popover-foreground: 0.15 0.03 225;
+
+    /* Primary — Rich Teal-Blue */
+    --primary: 0.38 0.12 205;
+    --primary-foreground: 0.99 0 0;
+
+    /* Secondary — Soft slate */
+    --secondary: 0.93 0.01 215;
+    --secondary-foreground: 0.22 0.04 220;
+
+    /* Muted */
+    --muted: 0.93 0.007 215;
+    --muted-foreground: 0.48 0.028 220;
+
+    /* Accent — Teal tint */
+    --accent: 0.88 0.06 195;
+    --accent-foreground: 0.22 0.09 200;
+
+    /* Destructive */
+    --destructive: 0.52 0.2 25;
+    --destructive-foreground: 0.99 0 0;
+
+    /* Border & Input */
+    --border: 0.87 0.015 215;
+    --input: 0.87 0.015 215;
+    --ring: 0.38 0.12 205;
+
+    /* Radius */
+    --radius: 0.75rem;
+
+    /* Risk level colors */
+    --risk-low: 0.52 0.16 155;
+    --risk-low-bg: 0.95 0.065 155;
+    --risk-moderate: 0.68 0.18 80;
+    --risk-moderate-bg: 0.97 0.065 80;
+    --risk-high: 0.6 0.19 45;
+    --risk-high-bg: 0.97 0.065 45;
+    --risk-critical: 0.52 0.23 25;
+    --risk-critical-bg: 0.97 0.065 25;
+
+    /* Charts */
+    --chart-1: 0.38 0.12 205;
+    --chart-2: 0.52 0.16 155;
+    --chart-3: 0.68 0.18 80;
+    --chart-4: 0.6 0.19 45;
+    --chart-5: 0.52 0.23 25;
+
+    /* Sidebar (unused but required) */
+    --sidebar: 0.97 0.006 210;
+    --sidebar-foreground: 0.15 0.03 225;
+    --sidebar-primary: 0.38 0.12 205;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.88 0.06 195;
+    --sidebar-accent-foreground: 0.22 0.09 200;
+    --sidebar-border: 0.87 0.015 215;
+    --sidebar-ring: 0.38 0.12 205;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+    line-height: 1.2;
+  }
+}
+
+@layer utilities {
+  .risk-low {
+    color: oklch(var(--risk-low));
+    background-color: oklch(var(--risk-low-bg));
+  }
+  .risk-moderate {
+    color: oklch(var(--risk-moderate));
+    background-color: oklch(var(--risk-moderate-bg));
+  }
+  .risk-high {
+    color: oklch(var(--risk-high));
+    background-color: oklch(var(--risk-high-bg));
+  }
+  .risk-critical {
+    color: oklch(var(--risk-critical));
+    background-color: oklch(var(--risk-critical-bg));
+  }
+  .gradient-mesh {
+    background: radial-gradient(
+        ellipse 80% 60% at 10% 0%,
+        oklch(0.86 0.09 195 / 0.5) 0%,
+        transparent 55%
+      ),
+      radial-gradient(
+        ellipse 60% 40% at 90% 10%,
+        oklch(0.88 0.07 155 / 0.35) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse 50% 50% at 50% 90%,
+        oklch(0.9 0.055 220 / 0.25) 0%,
+        transparent 55%
+      ), oklch(0.97 0.008 210);
+  }
+  .dot-grid {
+    background-image: radial-gradient(
+      circle,
+      oklch(0.65 0.08 205 / 0.12) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+  }
+}
